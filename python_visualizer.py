@@ -95,25 +95,25 @@ def main(win, width):
                     temp_end.make_end()
 
                 if button_astar.check():
-                    button_astar.background_color = TEAL
+                    button_astar.background_color = LIGHT_BLUE
                     ALG_ID = 0
                 else:
                     button_astar.background_color = DARK_BUTTON
 
                 if button_bfs.check():
-                    button_bfs.background_color = TEAL
+                    button_bfs.background_color = LIGHT_BLUE
                     ALG_ID = 1
                 else:
                     button_bfs.background_color = DARK_BUTTON
 
                 if button_dfs.check():
-                    button_dfs.background_color = TEAL
+                    button_dfs.background_color = LIGHT_BLUE
                     ALG_ID = 2
                 else:
                     button_dfs.background_color = DARK_BUTTON
 
                 if button_dijkstra.check():
-                    button_dijkstra.background_color = TEAL
+                    button_dijkstra.background_color = LIGHT_BLUE
                     ALG_ID = 3
                 else:
                     button_dijkstra.background_color = DARK_BUTTON

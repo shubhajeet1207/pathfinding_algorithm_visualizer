@@ -3,16 +3,16 @@ from design_set.button_design import Button
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 255, 0)
-YELLOW = (255, 255, 0)
+YELLOW = (254, 255, 134)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-TEAL = (0, 128, 128)
-PURPLE = (128, 0, 128)
+LIGHT_BLUE = (185, 233, 252)
+PURPLE = (143, 67, 238)
 ORANGE = (255, 165 ,0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
-LIGHT_BUTTON = (170, 170, 170)
-DARK_BUTTON = (100, 100, 100)
+LIGHT_BUTTON = (176, 218, 255)
+DARK_BUTTON = (65, 53, 67)
 
 astar_string = ["A* Pathfinding Algorithm", "Weighted: Yes", "Stictly Shotest Path:  Yes", "Worst time "
                                                                                                   "complexity: O("
