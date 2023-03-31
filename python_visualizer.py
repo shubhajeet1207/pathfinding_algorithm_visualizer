@@ -1,13 +1,19 @@
 import sys
+
 import pygame
 
 sys.path.append(".")
-
+import time
 from design_set.global_variables import *
 from grid.grids import make_grid, draw, get_clicked_pos
+from algorithms.a_star import astar
+
+# from algorithms.bfs import bfs
+# from algorithms.dfs import dfs
+# from algorithms.dijkstra import dijkstra
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pathfinding Algorithm Visualizer")
+pygame.display.set_caption("Path-finding Algorithm Visualizer")
 pygame.init()
 
 
@@ -20,10 +26,12 @@ def main(win, width):
     ALG_ID = 0
     start_time = 0
     elapsed_time = 0
-    number_of_visited_nodes = 0
+    total_visited_nodes = 0
 
     run = True
     while run:
+
+        # print(ALG_ID)
 
         draw(win, grid, ROWS, width, ALG_ID, elapsed_time)
 
@@ -56,7 +64,8 @@ def main(win, width):
             else:
                 button_reset.background_color = DARK_BUTTON
 
-            if pygame.mouse.get_pressed()[0]:  # LEFT SCREEN
+            # LEFT SCREEN
+            if pygame.mouse.get_pressed()[0]:
                 pos = pygame.mouse.get_pos()
                 row, col = get_clicked_pos(pos, ROWS, width)
                 if row < ROWS and col < ROWS:
@@ -79,7 +88,7 @@ def main(win, width):
                     grid = make_grid(ROWS, width)
                     start_time = 0
                     elapsed_time = 0
-                    number_of_visited_nodes = 0
+                    total_visited_nodes = 0
 
                 if button_start.check() == True and start and end:
 
@@ -89,10 +98,30 @@ def main(win, width):
 
                     temp_start = start
                     temp_end = end
-                    start_time = 0
-                    elapsed_time = 0
+                    # start_time = 0
+                    # elapsed_time = 0
+                    if ALG_ID == 0:
+                        start_time = time.time()
+                        astar(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                        elapsed_time = time.time() - start_time
+                    # if (ALG_ID == 1):
+                    #     start_time = time.time()
+                    #     bfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                    #     elapsed_time = time.time() - start_time
+                    # if (ALG_ID == 2):
+                    #     start_time = time.time()
+                    #     dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                    #     elapsed_time = time.time() - start_time
+                    # if (ALG_ID == 3):
+                    #     start_time = time.time()
+                    #     path = []
+                    #     visited = []
+                    #     dfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end, path, visited)
+                    #     elapsed_time = time.time() - start_time
+
                     temp_start.make_start()
                     temp_end.make_end()
+                # draw(win, grid, ROWS, WIDTH, ALG_ID, elapsed_time)
 
                 if button_astar.check():
                     button_astar.background_color = LIGHT_BLUE
@@ -100,25 +129,27 @@ def main(win, width):
                 else:
                     button_astar.background_color = DARK_BUTTON
 
-                if button_bfs.check():
-                    button_bfs.background_color = LIGHT_BLUE
-                    ALG_ID = 1
-                else:
-                    button_bfs.background_color = DARK_BUTTON
+                # if button_bfs.check():
+                #     button_bfs.background_color = LIGHT_BLUE
+                #     ALG_ID = 1
+                # else:
+                #     button_bfs.background_color = DARK_BUTTON
+                #
+                # if button_dfs.check():
+                #     button_dfs.background_color = LIGHT_BLUE
+                #     ALG_ID = 2
+                # else:
+                #     button_dfs.background_color = DARK_BUTTON
+                #
+                # if button_dijkstra.check():
+                #     button_dijkstra.background_color = LIGHT_BLUE
+                #     ALG_ID = 3
+                # else:
+                #     button_dijkstra.background_color = DARK_BUTTON
 
-                if button_dfs.check():
-                    button_dfs.background_color = LIGHT_BLUE
-                    ALG_ID = 2
-                else:
-                    button_dfs.background_color = DARK_BUTTON
+            # RIGHT SCREEN
 
-                if button_dijkstra.check():
-                    button_dijkstra.background_color = LIGHT_BLUE
-                    ALG_ID = 3
-                else:
-                    button_dijkstra.background_color = DARK_BUTTON
-
-            elif pygame.mouse.get_pressed()[2]:  # RIGHT SCREEN
+            elif pygame.mouse.get_pressed()[2]:
                 pos = pygame.mouse.get_pos()
                 row, col = get_clicked_pos(pos, ROWS, width)
                 if row < ROWS and col < ROWS:
@@ -136,5 +167,7 @@ def main(win, width):
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
 
+
+# pygame.quit()
 
 main(WIN, WIDTH)

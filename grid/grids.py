@@ -1,17 +1,15 @@
 import pygame
 import math
-import sys
 from grid.node import Node
 from design_set.global_variables import *
 from design_set.text_design import drawText, drawTextcenter
 
 pygame.init()
-font = pygame.font.SysFont('Arial', GAP)
+font = pygame.font.SysFont('arial', GAP)
 
 
 def make_grid(rows, width):
     grid = []
-    # gap = width // rows
     gap = 15
     for i in range(rows):
         grid.append([])
@@ -33,7 +31,7 @@ def draw_grid(win, rows, width):
     for i in range(gap):
         pygame.draw.line(win, ORANGE, (ROWS * GAP, i), (WIDTH, i))
         pygame.draw.line(win, ORANGE, (ROWS * GAP, HEIGHT - GAP + i), (WIDTH, HEIGHT - GAP + i))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, int(HEIGHT / 2) + 100 + i), (WIDTH, int(HEIGHT / 2) + 100 + i))
+        pygame.draw.line(win, ORANGE, (ROWS * GAP, (int)(HEIGHT / 2) + 100 + i), (WIDTH, (int)(HEIGHT / 2) + 100 + i))
         pygame.draw.line(win, ORANGE, (ROWS * GAP, 7 * GAP + 100 + i), (WIDTH, 7 * GAP + 100 + i))
         pygame.draw.line(win, ORANGE, (ROWS * GAP, 14 * GAP + 100 + i), (WIDTH, 14 * GAP + 100 + i))
         pygame.draw.line(win, ORANGE, (WIDTH - GAP + i, 0), (WIDTH - GAP + i, GAP * 50 - 1))
@@ -49,18 +47,18 @@ def draw(win, grid, rows, width, ALG_ID, time):
             if spot.isStart == 1:
                 spot.make_start()
                 text = font.render(" ", True, BLACK)
-                text_rect = text.get_rect(center=(spot.row * GAP + int(GAP / 2), spot.col * GAP + int(GAP / 2)))
+                text_rect = text.get_rect(center=(spot.row * GAP + (int)(GAP / 2), spot.col * GAP + (int)(GAP / 2)))
                 win.blit(text, text_rect)
 
             if spot.isEnd == 1:
                 spot.make_end()
                 text = font.render(" ", True, BLACK)
-                text_rect = text.get_rect(center=(spot.row * GAP + int(GAP / 2), spot.col * GAP + int(GAP / 2)))
+                text_rect = text.get_rect(center=(spot.row * GAP + (int)(GAP / 2), spot.col * GAP + (int)(GAP / 2)))
                 win.blit(text, text_rect)
 
-            if spot.found_barrier():
+            if spot.is_barrier():
                 text = font.render(" ", True, WHITE)
-                text_rect = text.get_rect(center=(spot.row * GAP + int(GAP / 2), spot.col * GAP + int(GAP / 2)))
+                text_rect = text.get_rect(center=(spot.row * GAP + (int)(GAP / 2), spot.col * GAP + (int)(GAP / 2)))
                 win.blit(text, text_rect)
 
             if (spot.row == 0 and spot.col <= 49) or (
@@ -77,7 +75,6 @@ def draw(win, grid, rows, width, ALG_ID, time):
         for i in range(len(astar_string)):
             if i == 0:
                 font1 = pygame.font.SysFont('arial', 40)
-                # drawText(astar_string[i], font1, WIN, 800, 50 + i * 50, BLACK)
                 drawTextcenter(astar_string[i], font1, win, 975, 50, BLACK)
             else:
                 font1 = pygame.font.SysFont('arial', 22)
@@ -94,7 +91,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 drawText(bfs_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
     # DFS Algorithm Initiate
-    if ALG_ID == 2:
+    if ALG_ID == 4:
         for i in range(len(dfs_string)):
             if i == 0:
                 font1 = pygame.font.SysFont('arial', 40)
@@ -114,7 +111,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 drawText(dijkstra_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
     font1 = pygame.font.SysFont('arial', 40)
-    drawTextcenter("Legend", font1, win, 960, 245, BLACK)
+    drawTextcenter("Notations", font1, win, 960, 245, BLACK)
     font1 = pygame.font.SysFont('arial', 22)
     drawText("Start node", font1, win, 800, 275, BLACK)
     drawText("End node", font1, win, 925, 275, BLACK)
@@ -129,7 +126,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
             if spot.is_closed():
                 total_visited_nodes += 1
 
-    drawText("Total Visited nodes: " + str(total_visited_nodes), font1, win, 825, 375, BLACK)
+    drawText("Visited nodes: " + str(total_visited_nodes), font1, win, 825, 375, BLACK)
     button_astar.draw(win)
     button_bfs.draw(win)
     button_dfs.draw(win)
@@ -143,10 +140,8 @@ def draw(win, grid, rows, width, ALG_ID, time):
 
 
 def get_clicked_pos(pos, rows, width):
-    # gap = width // rows
     gap = 15
     y, x = pos
-
     row = y // gap
     col = x // gap
 
