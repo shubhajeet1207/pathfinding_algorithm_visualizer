@@ -7,8 +7,8 @@ import time
 from design_set.global_variables import *
 from grid.grids import make_grid, draw, get_clicked_pos
 from algorithms.a_star import astar
+from algorithms.bfs import bfs
 
-# from algorithms.bfs import bfs
 # from algorithms.dfs import dfs
 # from algorithms.dijkstra import dijkstra
 
@@ -104,10 +104,10 @@ def main(win, width):
                         start_time = time.time()
                         astar(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
                         elapsed_time = time.time() - start_time
-                    # if (ALG_ID == 1):
-                    #     start_time = time.time()
-                    #     bfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
-                    #     elapsed_time = time.time() - start_time
+                    if ALG_ID == 1:
+                        start_time = time.time()
+                        bfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                        elapsed_time = time.time() - start_time
                     # if (ALG_ID == 2):
                     #     start_time = time.time()
                     #     dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
@@ -129,12 +129,12 @@ def main(win, width):
                 else:
                     button_astar.background_color = DARK_BUTTON
 
-                # if button_bfs.check():
-                #     button_bfs.background_color = LIGHT_BLUE
-                #     ALG_ID = 1
-                # else:
-                #     button_bfs.background_color = DARK_BUTTON
-                #
+                if button_bfs.check():
+                    button_bfs.background_color = LIGHT_BLUE
+                    ALG_ID = 1
+                else:
+                    button_bfs.background_color = DARK_BUTTON
+
                 # if button_dfs.check():
                 #     button_dfs.background_color = LIGHT_BLUE
                 #     ALG_ID = 2
