@@ -33,22 +33,22 @@ class Node:
         return self.color == BLACK
 
     def is_start(self):
-        return self.color == ORANGE
+        return self.color == GREEN
 
     def is_end(self):
-        return self.color == TURQUOISE
+        return self.color == GREEN
 
     def reset(self):
         self.color = WHITE
 
     def make_start(self):
-        self.color = RED
+        self.color = GREEN
 
     def make_closed(self):
-        self.color = ORANGE
+        self.color = RED
 
     def make_open(self):
-        self.color = PURPLE
+        self.color = ORANGE
 
     def make_barrier(self):
         self.color = BLACK
@@ -60,19 +60,19 @@ class Node:
         self.color = YELLOW
 
     def getVisited(self):
-        return self.isVisited[0], self.isVisited[1]
+        return isVisited[0], isVisited[1]
 
     def getDistance(self):
         return distance
 
     def getPrevious(self):
-        return self.previous[0], self.previous[1]
+        return previous[0], previous[1]
 
     def getStart(self):
-        return self.isStart
+        return isStart
 
     def getEnd(self):
-        return self.isEnd
+        return isEnd
 
     def draw(self, win):
         pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))

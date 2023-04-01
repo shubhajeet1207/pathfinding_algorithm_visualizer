@@ -29,13 +29,13 @@ def draw_grid(win, rows, width):
             pygame.draw.line(win, BLACK, (j * gap, 0), (j * gap, GAP * 50 - 1))
 
     for i in range(gap):
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, i), (WIDTH, i))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, HEIGHT - GAP + i), (WIDTH, HEIGHT - GAP + i))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, (int)(HEIGHT / 2) + 100 + i), (WIDTH, (int)(HEIGHT / 2) + 100 + i))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, 7 * GAP + 100 + i), (WIDTH, 7 * GAP + 100 + i))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP, 14 * GAP + 100 + i), (WIDTH, 14 * GAP + 100 + i))
-        pygame.draw.line(win, ORANGE, (WIDTH - GAP + i, 0), (WIDTH - GAP + i, GAP * 50 - 1))
-        pygame.draw.line(win, ORANGE, (ROWS * GAP + i, 0), (ROWS * GAP + i, GAP * 50 - 1))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP, i), (WIDTH, i))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP, HEIGHT - GAP + i), (WIDTH, HEIGHT - GAP + i))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP, (int)(HEIGHT / 2) + 100 + i), (WIDTH, (int)(HEIGHT / 2) + 100 + i))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP, 7 * GAP + 100 + i), (WIDTH, 7 * GAP + 100 + i))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP, 14 * GAP + 100 + i), (WIDTH, 14 * GAP + 100 + i))
+        pygame.draw.line(win, LIGHT_BLUE, (WIDTH - GAP + i, 0), (WIDTH - GAP + i, GAP * 50 - 1))
+        pygame.draw.line(win, LIGHT_BLUE, (ROWS * GAP + i, 0), (ROWS * GAP + i, GAP * 50 - 1))
 
 
 def draw(win, grid, rows, width, ALG_ID, time):
