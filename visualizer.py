@@ -135,11 +135,11 @@ def main(win, width):
                 else:
                     button_bfs.background_color = DARK_BUTTON
 
-                # if button_dfs.check():
-                #     button_dfs.background_color = LIGHT_BLUE
-                #     ALG_ID = 2
-                # else:
-                #     button_dfs.background_color = DARK_BUTTON
+                if button_dfs.check():
+                    button_dfs.background_color = LIGHT_BLUE
+                    ALG_ID = 2
+                else:
+                    button_dfs.background_color = DARK_BUTTON
                 #
                 # if button_dijkstra.check():
                 #     button_dijkstra.background_color = LIGHT_BLUE
