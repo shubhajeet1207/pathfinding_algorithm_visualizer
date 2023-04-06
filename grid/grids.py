@@ -91,7 +91,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 drawText(bfs_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
     # DFS Algorithm Initiate
-    if ALG_ID == 4:
+    if ALG_ID == 2:
         for i in range(len(dfs_string)):
             if i == 0:
                 font1 = pygame.font.SysFont('arial', 40)

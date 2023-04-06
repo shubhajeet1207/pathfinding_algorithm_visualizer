@@ -8,8 +8,8 @@ from design_set.global_variables import *
 from grid.grids import make_grid, draw, get_clicked_pos
 from algorithms.a_star import astar
 from algorithms.bfs import bfs
+from algorithms.dfs import dfs
 
-# from algorithms.dfs import dfs
 # from algorithms.dijkstra import dijkstra
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -108,15 +108,15 @@ def main(win, width):
                         start_time = time.time()
                         bfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
                         elapsed_time = time.time() - start_time
-                    # if (ALG_ID == 2):
-                    #     start_time = time.time()
-                    #     dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
-                    #     elapsed_time = time.time() - start_time
+                    if ALG_ID == 2:
+                        start_time = time.time()
+                        path = []
+                        visited = []
+                        dfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end, path, visited)
+                        elapsed_time = time.time() - start_time
                     # if (ALG_ID == 3):
                     #     start_time = time.time()
-                    #     path = []
-                    #     visited = []
-                    #     dfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end, path, visited)
+                    #     dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
                     #     elapsed_time = time.time() - start_time
 
                     temp_start.make_start()
