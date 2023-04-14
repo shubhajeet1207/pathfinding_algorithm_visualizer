@@ -9,8 +9,7 @@ from grid.grids import make_grid, draw, get_clicked_pos
 from algorithms.a_star import astar
 from algorithms.bfs import bfs
 from algorithms.dfs import dfs
-
-# from algorithms.dijkstra import dijkstra
+from algorithms.dijkstra import dijkstra
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Path-finding Algorithm Visualizer")
@@ -114,10 +113,10 @@ def main(win, width):
                         visited = []
                         dfs(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end, path, visited)
                         elapsed_time = time.time() - start_time
-                    # if (ALG_ID == 3):
-                    #     start_time = time.time()
-                    #     dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
-                    #     elapsed_time = time.time() - start_time
+                    if ALG_ID == 3:
+                        start_time = time.time()
+                        dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                        elapsed_time = time.time() - start_time
 
                     temp_start.make_start()
                     temp_end.make_end()
@@ -140,12 +139,12 @@ def main(win, width):
                     ALG_ID = 2
                 else:
                     button_dfs.background_color = DARK_BUTTON
-                #
-                # if button_dijkstra.check():
-                #     button_dijkstra.background_color = LIGHT_BLUE
-                #     ALG_ID = 3
-                # else:
-                #     button_dijkstra.background_color = DARK_BUTTON
+
+                if button_dijkstra.check():
+                    button_dijkstra.background_color = LIGHT_BLUE
+                    ALG_ID = 3
+                else:
+                    button_dijkstra.background_color = DARK_BUTTON
 
             # RIGHT SCREEN
 

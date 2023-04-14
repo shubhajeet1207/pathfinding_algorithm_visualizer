@@ -29,7 +29,7 @@ class Button(object):
         return self.rect.collidepoint(pygame.mouse.get_pos())
 
     def draw(self, WIN):
-        pygame.draw.rect(WIN, self.background_color, (self.rect), 0)
+        pygame.draw.rect(WIN, self.background_color, self.rect, 0)
 
         drawTextcenter(self.text, pygame.font.SysFont('arial', 18), WIN, self.x + self.width / 2,
                        self.y + self.height / 2, self.text_color)
