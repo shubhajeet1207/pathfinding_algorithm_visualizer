@@ -10,6 +10,8 @@ from algorithms.a_star import astar
 from algorithms.bfs import bfs
 from algorithms.dfs import dfs
 from algorithms.dijkstra import dijkstra
+from algorithms.bidirectional_bfs import bidirectional_search
+from algorithms.best_first_search import best_first_search
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Path-finding Algorithm Visualizer")
@@ -57,6 +59,16 @@ def main(win, width):
                 button_dijkstra.background_color = LIGHT_BUTTON
             else:
                 button_dijkstra.background_color = DARK_BUTTON
+
+            if button_bidirectional.check() == True and ALG_ID != 4:
+                button_bidirectional.background_color = LIGHT_BUTTON
+            else:
+                button_bidirectional.background_color = DARK_BUTTON
+
+            if button_best_first_search.check() == True and ALG_ID != 5:
+                button_best_first_search.background_color = LIGHT_BUTTON
+            else:
+                button_best_first_search.background_color = DARK_BUTTON
 
             if button_reset.check():
                 button_reset.background_color = LIGHT_BUTTON
@@ -117,6 +129,14 @@ def main(win, width):
                         start_time = time.time()
                         dijkstra(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
                         elapsed_time = time.time() - start_time
+                    if (ALG_ID == 4):
+                        start_time = time.time()
+                        bidirectional_search(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                        elapsed_time = time.time() - start_time
+                    if (ALG_ID == 5):
+                        start_time = time.time()
+                        best_first_search(lambda: draw(win, grid, ROWS, width, ALG_ID, 0), grid, start, end)
+                        elapsed_time = time.time() - start_time
 
                     temp_start.make_start()
                     temp_end.make_end()
@@ -145,6 +165,18 @@ def main(win, width):
                     ALG_ID = 3
                 else:
                     button_dijkstra.background_color = DARK_BUTTON
+
+                if button_bidirectional.check() == True:
+                    button_bidirectional.background_color = LIGHT_BLUE
+                    ALG_ID = 4
+                else:
+                    button_bidirectional.background_color = DARK_BUTTON
+
+                if button_best_first_search.check() == True:
+                    button_best_first_search.background_color = LIGHT_BLUE
+                    ALG_ID = 5
+                else:
+                    button_best_first_search.background_color = DARK_BUTTON
 
             # RIGHT SCREEN
 
