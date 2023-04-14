@@ -109,7 +109,8 @@ def draw(win, grid, rows, width, ALG_ID, time):
             else:
                 font1 = pygame.font.SysFont('arial', 22)
                 drawText(dijkstra_string[i], font1, win, 825, 50 + i * 30, BLACK)
-
+    
+    # Bidirectional Search Initiate
     if (ALG_ID == 4):
         for i in range(len(bidirectional_string)):
             if i == 0:
@@ -119,6 +120,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 font1 = pygame.font.SysFont('calibri', 22)
                 drawText(bidirectional_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
+    # Best First Search Initiate
     if (ALG_ID == 5):
         for i in range(len(best_first_search_string)):
             if i == 0:
@@ -159,6 +161,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
     pygame.display.update()
 
 
+# grid separation between x coordinate and y coordinate
 def get_clicked_pos(pos, rows, width):
     gap = 15
     y, x = pos
