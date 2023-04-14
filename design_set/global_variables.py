@@ -29,6 +29,14 @@ dfs_string = ["Depth First Search", "Weighted: No", "Guarantees shortest path: N
 dijkstra_string = ["Dijkstra Pathfinding Algorithm", "Weighted: Yes", "Guarantees shortest path: Yes",
                    "Time complexity: O(E*logV)", "Spacial complexity: O(E*logV)"]
 
+bidirectional_string = ["Bidirectional BFS", "Weighted -> Yes", "Guarantees shortest path -> No", "Time complexity -> "
+                                                                                                  "O(b^(d/2))",
+                        "Spacial complexity -> O(b^(d/2))"]
+
+best_first_search_string = ["Best First Search", "Weighted -> No", "Guarantees shortest path -> No", "Time complexity "
+                                                                                                     "-> O(b^d)",
+                            "Spacial complexity -> Polynomial"]
+
 time_string = [""]
 
 WIDTH = 1200
@@ -42,6 +50,8 @@ button_astar = Button(825, 550, 150, 50, WHITE, GREY, "A*")
 button_bfs = Button(975, 550, 150, 50, WHITE, GREY, "BFS")
 button_dijkstra = Button(975, 600, 150, 50, WHITE, GREY, "DIJKSTRA")
 button_dfs = Button(825, 650, 150, 50, WHITE, GREY, "DFS")
+button_bidirectional = Button(825, 600, 150, 50, WHITE, GREY, "BIDIRECTIONAL")
+button_best_first_search = Button(975, 650, 150, 50, WHITE, GREY, "BEST FIRST SEARCH")
 legend_start = Button(775, 275, 15, 15, GREEN, GREEN, " ")
 legend_end = Button(900, 275, 15, 15, GREEN, GREEN, " ")
 legend_obstacle = Button(1025, 275, 15, 15, BLACK, BLACK, " ")

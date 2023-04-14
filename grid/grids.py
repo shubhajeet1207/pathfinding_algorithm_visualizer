@@ -110,6 +110,24 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 font1 = pygame.font.SysFont('arial', 22)
                 drawText(dijkstra_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
+    if (ALG_ID == 4):
+        for i in range(len(bidirectional_string)):
+            if i == 0:
+                font1 = pygame.font.SysFont('calibri', 40)
+                drawTextcenter(bidirectional_string[i], font1, win, 975, 50, BLACK)
+            else:
+                font1 = pygame.font.SysFont('calibri', 22)
+                drawText(bidirectional_string[i], font1, win, 825, 50 + i * 30, BLACK)
+
+    if (ALG_ID == 5):
+        for i in range(len(best_first_search_string)):
+            if i == 0:
+                font1 = pygame.font.SysFont('calibri', 40)
+                drawTextcenter(best_first_search_string[i], font1, win, 975, 50, BLACK)
+            else:
+                font1 = pygame.font.SysFont('calibri', 22)
+                drawText(best_first_search_string[i], font1, win, 825, 50 + i * 30, BLACK)
+
     font1 = pygame.font.SysFont('arial', 40)
     drawTextcenter("Notations", font1, win, 960, 245, BLACK)
     font1 = pygame.font.SysFont('arial', 22)
@@ -131,6 +149,8 @@ def draw(win, grid, rows, width, ALG_ID, time):
     button_bfs.draw(win)
     button_dfs.draw(win)
     button_dijkstra.draw(win)
+    button_bidirectional.draw(win)
+    button_best_first_search.draw(win)
     button_reset.draw(win)
     button_start.draw(win)
     legend_start.draw(win)

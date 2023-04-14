@@ -10,7 +10,7 @@ from algorithms.a_star import astar
 from algorithms.bfs import bfs
 from algorithms.dfs import dfs
 from algorithms.dijkstra import dijkstra
-from algorithms.bidirectional_bfs import bidirectional_search
+from algorithms.bidirectional_search import bidirectional_search
 from algorithms.best_first_search import best_first_search
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
