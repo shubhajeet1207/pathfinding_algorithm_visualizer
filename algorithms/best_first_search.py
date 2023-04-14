@@ -1,6 +1,7 @@
 import pygame
 from queue import PriorityQueue
 
+
 def color_best(draw, grid, path):
 	for node in path:
 		grid[node[0]][node[1]].make_path()
