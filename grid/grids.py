@@ -111,7 +111,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 drawText(dijkstra_string[i], font1, win, 825, 50 + i * 30, BLACK)
     
     # Bidirectional Search Initiate
-    if (ALG_ID == 4):
+    if ALG_ID == 4:
         for i in range(len(bidirectional_string)):
             if i == 0:
                 font1 = pygame.font.SysFont('calibri', 40)
@@ -121,7 +121,7 @@ def draw(win, grid, rows, width, ALG_ID, time):
                 drawText(bidirectional_string[i], font1, win, 825, 50 + i * 30, BLACK)
 
     # Best First Search Initiate
-    if (ALG_ID == 5):
+    if ALG_ID == 5:
         for i in range(len(best_first_search_string)):
             if i == 0:
                 font1 = pygame.font.SysFont('calibri', 40)
